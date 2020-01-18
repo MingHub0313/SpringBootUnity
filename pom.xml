@@ -93,7 +93,7 @@
         <!-- mail -->
         <javax-mail.version>1.4.7</javax-mail.version>
         <!-- lomlok -->
-        <lombak.version>1.16.10</lombak.version>
+        <lombak.version>1.18.0</lombak.version>
         <!-- api文档 -->
         <springfox-swagger-ui.version>2.2.2</springfox-swagger-ui.version>
         <!-- mybatis -->
