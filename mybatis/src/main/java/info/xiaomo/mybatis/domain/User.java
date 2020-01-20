@@ -15,19 +15,23 @@ public class User {
 
     private Long id;
 
+    private String avatar;
+
+    private String email;
+
     private String name;
 
-    private Integer age;
+    private String username;
 
-    public User(Long id, String name, Integer age) {
+    public User(Long id, String name, String username) {
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.username = username;
     }
 
-    public User(String name, Integer age) {
+    public User(String name, String username) {
         this.name = name;
-        this.age = age;
+        this.username = username;
     }
 
 }

@@ -17,7 +17,7 @@ public interface UserMapper {
 
     @Results({
             @Result(property = "name", column = "name"),
-            @Result(property = "age", column = "age")
+            @Result(property = "email", column = "email")
     })
 
     /**
@@ -32,11 +32,11 @@ public interface UserMapper {
      * 插入
      *
      * @param name
-     * @param age
+     * @param email
      * @return
      */
-    @Insert("INSERT INTO USER(NAME, AGE) VALUES(#{name}, #{age})")
-    int insert(@Param("name") String name, @Param("age") Integer age);
+    @Insert("INSERT INTO USER(NAME, EMAIL,PASSWORD,USERNAME) VALUES(#{name}, #{email},#{password},#{username})")
+    int insert(@Param("name") String name, @Param("email") Integer email,@Param("password") Integer password,@Param("username") Integer username);
 
     /**
      * 查所有
@@ -51,7 +51,7 @@ public interface UserMapper {
      *
      * @param user
      */
-    @Update("UPDATE USER SET age=#{age} WHERE name=#{name}")
+    @Update("UPDATE USER SET username=#{username} WHERE name=#{name}")
     void update(User user);
 
     /**
@@ -68,7 +68,7 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    @Insert("INSERT INTO USER(name, age) VALUES(#{name}, #{age})")
+    @Insert("INSERT INTO USER(name, email,password,username) VALUES(#{name}, #{email},#{password},#{username})")
     int insertByUser(User user);
 
     /**
@@ -77,7 +77,7 @@ public interface UserMapper {
      * @param map
      * @return
      */
-    @Insert("INSERT INTO user(name, age) VALUES(#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})")
+    @Insert("INSERT INTO user(name, email,password,username) VALUES(#{name,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR})")
     int insertByMap(Map<String, Object> map);
 
 }
