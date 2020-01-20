@@ -33,22 +33,43 @@ public class TestController {
         this.dao = dao;
     }
 
+    /**
+     * 根据key 查询对应的 value
+     * @param key
+     * @return
+     */
     @RequestMapping(value = "get/{key}", method = RequestMethod.GET)
     public Result<String> find(@PathVariable("key") String key) {
         String value = dao.getValue(key);
         return new Result<>(value);
     }
 
+    /**
+     * 添加 一个 key-value
+     * @param value
+     * @param key
+     * @return
+     */
     @RequestMapping(value = "add/{key}/{value}", method = RequestMethod.GET)
     public Result<Boolean> add(@PathVariable("value") String value, @PathVariable("key") String key) {
         return new Result<>(dao.cacheValue(key, value));
     }
 
+    /**
+     * 删除一个 key
+     * @param key
+     * @return
+     */
     @RequestMapping(value = "del/{key}", method = RequestMethod.GET)
     public Result<Boolean> del(@PathVariable("key") String key) {
         return new Result<>(dao.removeValue(key));
     }
 
+    /**
+     * 根据 key 获取总页数
+     * @param key
+     * @return
+     */
     @RequestMapping(value = "count/{key}", method = RequestMethod.GET)
     public Result<Long> count(@PathVariable("key") String key) {
         return new Result<>(dao.getListSize(key));
